@@ -3,7 +3,7 @@
 all:dummy_boot
 
 dummy_boot:boot_dummy.asm
-	nasm boot_dummy.asm -f bin -o boot.bin
+	nasm boot_dummy.asm -felf -o ../build/boot.bin
 
 clean:
-	rm -felf boot.bin
+	rm -f boot.bin
