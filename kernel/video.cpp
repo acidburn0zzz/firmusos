@@ -21,7 +21,7 @@ along with FirmusOS.  If not, see <http://www.gnu.org/licenses/>.
 
 Video::Video() {
     pos = 0;
-    off = 0;
+    offset = 0;
     videomem = (unsigned short*)0xb8000;
 }
 
@@ -29,30 +29,29 @@ Video::~Video() {}
 
 void Video::clear() {
     unsigned int i;
-    for(i=0; i<(80*25); i++) {
+    for(i=0; i<(VGA_WIDTH*VGA_HEIGHT); i++) {
         videomem[i] = (unsigned short)' '|0x0700;
     }
     pos = 0;
-    off = 0;
+    offset = 0;
 }
 
 void Video::write(char *cp) {
-    char *str = cp, *ch;
-    for(ch=str; *ch; ch++) {
-        put(*ch);
+    while( *cp != 0 )
+    {
+        put(*cp++);
     }
 }
 
 void Video::put(char c) {
-    if(pos>=80) {
+    if(pos>=VGA_WIDTH) {
         pos = 0;
-        off+=80;
+        offset+=VGA_HEIGHT;
     }
-    if(off>=(80*25)) {
+    if(offset>=(VGA_WIDTH*VGA_HEIGHT)) {
         clear();
     }
-
-    videomem[off+pos] = (unsigned short)c|0x0700;
+    videomem[offset+pos] = (unsigned short)c|0x0700;
     pos++;
 }
 

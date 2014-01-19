@@ -5,9 +5,8 @@ Real-time Operating System <br>
 Microkernel design <br>
 POSIX-compliant <br>
 
-========
 Packages needed:
-
+========
 * GCC >= 4.8.1
 * Kdevelop >= 4.6.0
 * Grub2

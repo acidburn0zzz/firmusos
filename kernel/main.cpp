@@ -18,11 +18,11 @@ along with FirmusOS.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "video.h"
+
 extern "C" int _main(void){
   Video vid;
-  vid.clear();
   vid.write("FirmusOS");
-  vid.write("-= Development branch =-");
-  
+  vid.write("-= Development branch =-"); 
+ 
   return 0;
 }
