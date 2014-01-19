@@ -17,14 +17,13 @@ along with FirmusOS.  If not, see <http://www.gnu.org/licenses/>.
     Giacomo Picchiarelli <gpicchiarelli@gmail.com>
 */
 
-
 #include "video.h"
-int _main(void);
 
-int _main(void) {
-    Video vid;
-    vid.clear();
-    vid.write("Firmus OS 0.1 alpha");
-    vid.write("Giacomo Picchiarelli <gpicchiarelli@gmail.com>");
-    return 0;
+extern "C" int _main(void){
+  Video vid;
+  vid.clear();
+  vid.write("FirmusOS");
+  vid.write("-= Development branch =-");
+  
+  return 0;
 }

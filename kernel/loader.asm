@@ -1,11 +1,9 @@
-;loader.asm
-
 [BITS 32]
 
-[global start]
-[extern_main]
+global start
+extern _main
 
 start:
-call_main
-cli
-hlt
+    call _main
+    cli 
+    hlt

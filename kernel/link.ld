@@ -1,9 +1,7 @@
-/*link.ld*/
-
 OUTPUT_FORMAT("binary")
 ENTRY(start)
 SECTIONS{
-. = 0x00100000;
+. = 0x7c00;
 
 .text :{
     *(.text)
