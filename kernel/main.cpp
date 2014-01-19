@@ -17,9 +17,14 @@ along with FirmusOS.  If not, see <http://www.gnu.org/licenses/>.
     Giacomo Picchiarelli <gpicchiarelli@gmail.com>
 */
 
-#ifndef DEF_H
-#define DEF_H
 
-#define VERSION 0.1
+#include "video.h"
+int _main(void);
 
-#endif // DEF_H
+int _main(void) {
+    Video vid;
+    vid.clear();
+    vid.write("Firmus OS 0.1 alpha");
+    vid.write("Giacomo Picchiarelli <gpicchiarelli@gmail.com>");
+    return 0;
+}
