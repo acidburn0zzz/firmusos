@@ -1,15 +1,18 @@
 #FirmusOS Makefile
-
+PROGRAM=kernel-firmus
+BUILD=build/
 CC=g++ 
-PARM=-Wno-write-strings -ffreestanding -nostdlib -fno-builtin -fno-rtti -fno-exceptions
-ARCH=-m32
-OBJS=video.cpp main.cpp
-TARGET=build/video.o build/main.o
-
-default:
-	$(CC) $(PARM) $(ARCH) -c $(OBJS) -o $(TARGET) 
-	nasm -f aout loader.asm -o build/loader.o
-	ld -m elf_i386 -T link.ld -o build/kernel.bin $(TARGET)
+CFLAGS=-Wno-write-strings -ffreestanding -nostdlib -fno-builtin -fno-rtti -fno-exceptions -O2
+ARCH32=-m32
+SOURCES:=$(wildcard *.cpp)
+TARGET=$(BUILD)kernel.o 
+LOADER32=$(BUILD)loader.o
+#32bit
+all:
+	$(CC) $(CFLAGS) $(ARCH32) $(SOURCES) -o $(TARGET)	
+	nasm -f aout loader.asm -o $(LOADER32)
+	ld -m elf_i386 -T link.ld -o build/kernel.bin $(TARGET) $(LOADER32)
+	qemu build/kernel.bin
 
 clean:
 	rm -f build/*.o
