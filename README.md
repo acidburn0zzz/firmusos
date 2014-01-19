@@ -17,15 +17,16 @@ Packages needed:
 * Cmake
 * ccache
 
-========
 Usage
+========
 
 In *kernel* directory type:
-$: make clean
-$: make
+
+1. $: make clean
+2. $: make
 
 QEMU starts immediately.
-========
 
+========
 For contributions: gpicchiarelli@gmail.com
 
