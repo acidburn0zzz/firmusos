@@ -1,7 +1,7 @@
 #FirmusOS Makefile
 #
 #Giacomo Picchiarelli <gpicchiarelli@gmail.com>
-# xorriso required
+# 
 
 PROGRAM=firmusos.bin
 BUILD=build/
@@ -27,7 +27,7 @@ all:
 	cp templates/grub.cfg $(BUILD)isodir/boot/grub/grub.cfg
 	grub-mkrescue -o $(BUILD)os.iso $(BUILD)isodir
 	rm -R $(BUILD)isodir
-	qemu -cdrom $(BUILD)os.iso 
+	qemu -cdrom $(BUILD)os.iso
 
 clean:
 	rm -f build/*.*
