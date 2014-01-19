@@ -1,9 +1,9 @@
 FirmusOS
 ========
 
-Real-time Operating System 
-Microkernel design
-POSIX-compliant
+Real-time Operating System <br>
+Microkernel design <br>
+POSIX-compliant <br>
 
 ========
 Packages needed:
