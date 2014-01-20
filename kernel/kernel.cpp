@@ -21,10 +21,8 @@ along with FirmusOS.  If not, see <http://www.gnu.org/licenses/>.
 
 extern "C" void _main(void){
   Video vid;
-  vid.write("FirmusOS");
-  vid.write("-= Development branch =-"); 
-  
+
   while(true){
-    vid.put('S');
+    vid.put('0');
   }
 }

@@ -17,7 +17,7 @@ compile:
 	$(CXX) $(CFLAGS) $(ARCH32) -c $(SOURCES)
 	mv *.o $(BUILD)
 	nasm -felf loader.asm -o $(LOADER32)
-	ld -m elf_i386 -T link.ld -o build/$(PROGRAM) $(wildcard $(BUILD)*.o)
+	ld -m elf_i386 -T link.ld -o $(BUILD)$(PROGRAM) $(BUILD)*.o
 	qemu -kernel $(BUILD)$(PROGRAM)
 
 isocd:
