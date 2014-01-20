@@ -13,11 +13,14 @@ TARGET=$(BUILD)kernel.o
 LOADER32=$(BUILD)loader.o
 
 #32bit
-all:
+compile:
 	$(CXX) $(CFLAGS) $(ARCH32) -c $(SOURCES)
 	mv *.o $(BUILD)
 	nasm -felf loader.asm -o $(LOADER32)
 	ld -m elf_i386 -T link.ld -o build/$(PROGRAM) $(wildcard $(BUILD)*.o)
+	qemu -kernel $(BUILD)$(PROGRAM)
+
+isocd:
 	mkdir -p $(BUILD)isodir
 	mkdir -p $(BUILD)isodir/boot
 	cp $(BUILD)$(PROGRAM) $(BUILD)isodir/boot/$(PROGRAM)
@@ -29,4 +32,3 @@ all:
 
 clean:
 	rm -f build/*.*
-	rm -R build/*
