@@ -5,16 +5,16 @@
 PROGRAM=firmusos.bin
 BUILD=build/
 CXX=g++ 
-CFLAGS=-Wno-write-strings -ffreestanding -nostdlib -fno-rtti -fno-exceptions
+CFLAGS=-Wno-write-strings -static
 ARCH32=-m32
 SOURCES:=$(wildcard *.cpp)
 OBJS:=$(SOURCES:.cpp=.o)
 TARGET=$(BUILD)kernel.o 
 LOADER32=$(BUILD)loader.o
-
+LIBS+=-lstdc++
 #32bit
 compile:
-	$(CXX) $(CFLAGS) $(ARCH32) -c $(SOURCES)
+	$(CXX) $(CFLAGS) $(ARCH32) -c $(SOURCES) 
 	mv *.o $(BUILD)
 	nasm -felf loader.asm -o $(LOADER32)
 	ld -m elf_i386 -T link.ld -o $(BUILD)$(PROGRAM) $(BUILD)*.o

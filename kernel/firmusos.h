@@ -17,16 +17,5 @@ along with FirmusOS.  If not, see <http://www.gnu.org/licenses/>.
     Giacomo Picchiarelli <gpicchiarelli@gmail.com>
 */
 
-#include "video.h"
-#include "firmusos.h"
+const double FIRMUSOD_VERSION = 0.1;
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-extern "C" void _main(void){
-  Video vid;
-  cout << "FirmusOS" << endl;
-  cout << "FirmusOS" << endl;
-}
