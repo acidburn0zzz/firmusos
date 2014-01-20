@@ -17,12 +17,8 @@ along with FirmusOS.  If not, see <http://www.gnu.org/licenses/>.
     Giacomo Picchiarelli <gpicchiarelli@gmail.com>
 */
 
-#include "video.h"
-
-extern "C" int _main(void){
-  Video vid;
-  vid.write("FirmusOS");
-  vid.write("-= Development branch =-"); 
- 
-  return 0;
+extern "C" void __cxa_pure_virtual()
+{
+    // Do nothing or print an error message.
 }
+
